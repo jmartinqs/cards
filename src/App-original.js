@@ -39,35 +39,21 @@ export default function App() {
           {/* Css */}
 
           <div className="buttons">
-            <Button
-              backgroundColor="#7950f2"
-              textColor="#fff"
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
               onClick={handlePrevious}
             >
-              Previous <span>🤚</span>
-            </Button>
-
-            <Button
-              backgroundColor="#7950f2"
-              textColor="#fff"
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
               onClick={handleNext}
             >
-              Next <span>✊</span>
-            </Button>
+              Next
+            </button>
           </div>
         </div>
       )}
     </>
-  );
-}
-
-function Button({ textColor, backgroundColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: backgroundColor, color: textColor }}
-      onClick={onClick}
-    >
-      {children}
-    </button>
   );
 }
