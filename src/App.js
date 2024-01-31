@@ -8,6 +8,18 @@ const messages = [
 
 // Setting buttons
 export default function App() {
+  return (
+    <div>
+      <Steps />
+      <StepMessage step={1}>
+        <p>Pass in content</p>
+        <p></p>
+      </StepMessage>
+    </div>
+  );
+}
+
+function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
@@ -32,9 +44,19 @@ export default function App() {
             <div className={step >= 2 ? "active" : ""}>2</div>
             <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
-          <p className="message">
-            Step {step}: {messages[step - 1]}
-          </p>
+
+          <StepMessage step={step}>
+            {messages[step - 1]}
+            <div className="buttons">
+              <Button
+                backgroundColor="#fd3"
+                textColor="#f3a"
+                onClick={() => alert("Hello")}
+              >
+                Hello
+              </Button>
+            </div>
+          </StepMessage>
 
           {/* Css */}
 
@@ -58,6 +80,15 @@ export default function App() {
         </div>
       )}
     </>
+  );
+}
+
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step {step}</h3>
+      {children}
+    </div>
   );
 }
 
